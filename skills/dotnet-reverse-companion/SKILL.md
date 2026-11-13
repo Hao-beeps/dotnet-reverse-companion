@@ -84,15 +84,30 @@ python scripts/align_checklist.py --input features.txt --output 对齐检查表.
 | 只看类型列表 | `ilspycmd --list-types app.exe` |
 | 导出资源 | `ilspycmd --resource --no-dead-code -o out/ app.exe` |
 
-## 合规边界（务必遵守）
+## 合规边界（务必遵守 · 硬性红线）
 
 - 本 skill 仅用于**合法授权范围内**的学习、互操作性研究、安全分析与自研启发
-- 不得用于绕过授权、侵犯版权、破解付费限制或任何违法用途
-- 复刻时优先自研等价实现，避免直接搬运受版权保护的专有代码
-- 涉及进程注入 / 全局钩子等侵入性手段，需确认目标平台合规与用户知情同意
+- **红线一**：不得用于规避、绕过任何软件的技术保护措施（加壳 / 加密 / 授权验证等）。绕过技术措施将失去法律上的"学习研究"豁免，可能单独构成违法
+- **红线二**：不得直接搬运、复制受版权保护的专有代码；复刻时**必须优先自研等价实现**
+- **红线三**：涉及进程注入 / 全局钩子等侵入性手段，须确认目标平台合规与用户知情同意，且不得用于未经授权地控制或干扰他人软件
+- 买家使用前须确认：对分析对象拥有合法权利或已获授权。本 skill 不提供也不鼓励任何违法用途
+- 任何将本 skill 用于侵犯著作权、不正当竞争或违反所在地法律的行为，由使用者自行承担全部责任
+
+## 进阶脚本（进阶版）
+
+进阶版包含两个可直接跑的辅助脚本（位于 `scripts/`）：
+
+- **`inject_template_generator.py`** —— 从对齐检查表里挑出状态为 ✅ 的已完成项，为每个对齐项生成一段 C# 注入点骨架（`InjectedFeatures.cs`）与「注入清单.md」，帮你把提取的逻辑有序地移植到自研项目。只生成"等价实现"占位，不搬运专有代码。
+  ```bash
+  python scripts/inject_template_generator.py --checklist 对齐检查表.md --out-dir injection_template
+  ```
+- **`compat_report.py`** —— 读对齐检查表，统计对齐率、按优先级分布、标记侵入性风险项（注入 / hook / 进程等），产出一份可交付的验证报告。
+  ```bash
+  python scripts/compat_report.py --checklist 对齐检查表.md --output 兼容性报告.md
+  ```
 
 ## 参考资源
 
 - ILSpy 官方：`github.com/icsharpcode/ILSpy`
 - dnSpyEx：`github.com/dnSpyEx/dnSpy`
-- 本 skill 脚本：`scripts/align_checklist.py`、`scripts/decompile_helper.py`
+- 本 skill 脚本：`scripts/align_checklist.py`、`scripts/decompile_helper.py`、`scripts/inject_template_generator.py`、`scripts/compat_report.py`
