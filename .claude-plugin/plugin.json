@@ -1,0 +1,8 @@
+{
+  "name": "dotnet-reverse-companion",
+  "description": "把闭源 .NET 桌面程序（WPF/WinForms、QQ 类客户端、Windows 工具）的功能，以行为层面高度一致为目标，通过六步方法论 + 两个辅助脚本复刻 / 对齐到自研项目。",
+  "version": "1.0.0",
+  "author": {
+    "name": "ASUC"
+  }
+}

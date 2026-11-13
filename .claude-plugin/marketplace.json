@@ -1,0 +1,13 @@
+{
+  "name": "asuc-plugins",
+  "owner": {
+    "name": "ASUC"
+  },
+  "plugins": [
+    {
+      "name": "dotnet-reverse-companion",
+      "source": "./",
+      "description": ".NET 桌面应用逆向与功能对齐助手：反编译、关键模块定位、竞品功能对齐检查表、代码注入复刻。"
+    }
+  ]
+}
