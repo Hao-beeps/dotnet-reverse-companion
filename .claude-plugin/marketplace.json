@@ -1,13 +1,15 @@
 {
-  "name": "asuc-plugins",
+  "name": "hao-beeps-plugins",
   "owner": {
-    "name": "ASUC"
+    "name": "Hao-beeps"
   },
   "plugins": [
     {
       "name": "dotnet-reverse-companion",
       "source": "./",
-      "description": ".NET 桌面应用逆向与功能对齐助手：反编译、关键模块定位、竞品功能对齐检查表、代码注入复刻。"
+      "version": "1.0.0",
+      "description": ".NET 桌面应用逆向与功能对齐助手：反编译、关键模块定位、竞品功能对齐检查表、代码注入复刻。",
+      "homepage": "https://github.com/Hao-beeps/dotnet-reverse-companion"
     }
   ]
 }
